@@ -20,6 +20,7 @@
 
 &nbsp;&nbsp;[product 服务](#div3.2)
 
+&nbsp;&nbsp;[order 服务](#div3.3)
 
 ## 服务拆分
 <a name="div1" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
@@ -262,3 +263,21 @@
    $ go run product.go -f etc/product.yaml
    ```
    > Starting server at 0.0.0.0:8001...
+
+### order 服务
+<a name="div3.3" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
+
+前提：确保 user rpc 以及 product rpc 运行中
+
+1. 启动 order rpc 服务
+   ```shell
+   $ cd service/order/rpc
+   $ go run order.go -f etc/order.yaml
+   ```
+   > Starting rpc server at 127.0.0.1:9002...
+2. 启动 order api 服务
+   ```shell
+   $ cd service/order/api
+   $ go run order.go -f etc/order.yaml
+   ```
+   > Starting server at 0.0.0.0:8002...
