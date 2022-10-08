@@ -2,9 +2,30 @@
 
 ![golang](https://img.shields.io/badge/Golang-v1.19-green.svg)
 
+---
+
+<font size=6 color=red face="华文新魏">【目录】</font>
+
+[服务拆分](#div1)
+
+&nbsp;&nbsp;[按业务服务拆分](#div1.1)
+
+&nbsp;&nbsp;[按调用方式拆分](#div1.2)
+
+[项目框架](#div2)
+
+[搭建步骤](#div3)
+
+&nbsp;&nbsp;[user 服务](#div3.1)
+
+&nbsp;&nbsp;[product 服务](#div3.2)
+
+
 ## 服务拆分
+<a name="div1" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
 ### 按业务服务拆分
+<a name="div1.1" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
   - 用户服务（user）
   - 订单服务（order）
@@ -12,6 +33,7 @@
   - 支付服务（pay）
 
 ### 按调用方式拆分
+<a name="div1.2" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
 | 区别                             | API 服务                                                                                    | RPC 服务                                                      |
 |--------------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------|
@@ -22,6 +44,7 @@
 | 服务治理：（下游服务新增，重启，下线时如何不影响上游调用者） | 需要事先通知，如修改 NGINX 配置                                                                       | 能做到自动通知，不影响上游                                               |
 
 ## 项目框架
+<a name="div2" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
 ```text
 ├── common           # 通用库
@@ -46,8 +69,10 @@
 ```
 
 ## 搭建步骤
+<a name="div3" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
 ### user 服务
+<a name="div3.1" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
 1. 生成 user model 模型
    ```shell
@@ -153,6 +178,7 @@
    > Starting server at 0.0.0.0:8000...
 
 ### product 服务
+<a name="div3.2" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
 1. 生成 product model 模型
    ```shell
