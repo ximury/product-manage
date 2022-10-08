@@ -1,5 +1,7 @@
 # 微服务 product-manage
 
+![golang](https://img.shields.io/badge/Golang-v1.19-green.svg)
+
 ## 服务拆分
 
 ### 按业务服务拆分
