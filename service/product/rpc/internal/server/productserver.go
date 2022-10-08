@@ -24,20 +24,20 @@ func NewProductServer(svcCtx *svc.ServiceContext) *ProductServer {
 
 func (s *ProductServer) Create(ctx context.Context, in *product.CreateRequest) (*product.CreateResponse, error) {
 	l := logic.NewCreateLogic(ctx, s.svcCtx)
-	return l.Create(in)
+	return l.Create(ctx, in)
 }
 
 func (s *ProductServer) Update(ctx context.Context, in *product.UpdateRequest) (*product.UpdateResponse, error) {
 	l := logic.NewUpdateLogic(ctx, s.svcCtx)
-	return l.Update(in)
+	return l.Update(ctx, in)
 }
 
 func (s *ProductServer) Remove(ctx context.Context, in *product.RemoveRequest) (*product.RemoveResponse, error) {
 	l := logic.NewRemoveLogic(ctx, s.svcCtx)
-	return l.Remove(in)
+	return l.Remove(ctx, in)
 }
 
 func (s *ProductServer) Detail(ctx context.Context, in *product.DetailRequest) (*product.DetailResponse, error) {
 	l := logic.NewDetailLogic(ctx, s.svcCtx)
-	return l.Detail(in)
+	return l.Detail(ctx, in)
 }
