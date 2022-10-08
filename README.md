@@ -64,11 +64,11 @@
     ```
 4. 创建 proto 文件
    ```shell
-   vim rpc/user.proto
+   vim rpc/product.proto
     ```
 5. 根据 proto 文件生成代码
    ```shell
-   goctl rpc protoc user.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
+   goctl rpc protoc product.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
     ```
 6. 编写 user rpc 服务 - 修改 user.yaml 配置文件
    ```shell
@@ -149,3 +149,88 @@
    $ go run user.go -f etc/user.yaml
    ```
    > Starting server at 0.0.0.0:8000...
+
+### product 服务
+
+1. 生成 product model 模型
+   ```shell
+   cd product
+   # 添加sql，创建表信息
+   vim model/product.sql
+   goctl model mysql ddl -src ./model/product.sql -dir ./model -c
+   ```
+2. 创建 api 文件并生成 api 服务
+   ```shell
+   vim api/product.api
+   goctl api go -api ./api/product.api -dir ./api
+   ```
+3. 创建 proto 文件并生成 rpc 服务
+   ```shell
+   vim rpc/product.proto
+   cd rpc
+   goctl rpc protoc product.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
+   ```
+4. 编写 product rpc 服务
+   ```shell
+   # 修改 product.yaml 配置文件
+   vim rpc/etc/product.yaml
+   # 添加 product model 依赖
+   # 1.添加 Mysql 服务配置，CacheRedis 服务配置的实例化
+   vim rpc/internal/config/config.go
+   # 2.注册服务上下文 product model 的依赖
+   vim rpc/internal/svc/servicecontext.go
+   ```
+5. 添加产品创建逻辑 Create
+   ```shell
+   vim rpc/internal/logic/createlogic.go
+   ```
+6. 添加产品详情逻辑 Detail
+   ```shell
+   vim rpc/internal/logic/detaillogic.go
+   ```
+7. 添加产品更新逻辑 Update
+   ```shell
+   vim rpc/internal/logic/updatelogic.go
+   ```
+8. 添加产品删除逻辑 Remove
+   ```shell
+   vim rpc/internal/logic/removelogic.go
+   ```
+9. 编写 product api 服务
+   ```shell
+   # 修改 product.yaml 文件，添加 product rpc 依赖
+   # 1.添加 product rpc 服务配置
+   vim api/etc/product.yaml
+   # 2.添加 product rpc 服务配置的实例化
+   vim api/internal/config/config.go
+   # 3.注册服务上下文 product rpc 的依赖
+   vim api/internal/svc/servicecontext.go
+   ```
+10. 添加产品创建逻辑 Create
+   ```shell
+   vim api/internal/logic/createlogic.go
+   ```
+11. 添加产品详情逻辑 Detail
+   ```shell
+   vim api/internal/logic/detaillogic.go
+   ```
+12. 添加产品更新逻辑 Update
+   ```shell
+   vim api/internal/logic/updatelogic.go
+   ```
+13. 添加产品删除逻辑 Remove
+   ```shell
+   vim api/internal/logic/removelogic.go
+   ```
+14. 启动 product rpc 服务
+   ```shell
+   $ cd service/product/rpc
+   $ go run product.go -f etc/product.yaml
+   ```
+   > Starting rpc server at 127.0.0.1:9001...
+15. 启动 product api 服务
+   ```shell
+   $ cd service/product/api
+   $ go run product.go -f etc/product.yaml
+   ```
+   > Starting server at 0.0.0.0:8001...
