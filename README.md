@@ -22,6 +22,8 @@
 
 &nbsp;&nbsp;[order 服务](#div3.3)
 
+&nbsp;&nbsp;[pay 服务](#div3.4)
+
 ## 服务拆分
 <a name="div1" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
@@ -281,3 +283,21 @@
    $ go run order.go -f etc/order.yaml
    ```
    > Starting server at 0.0.0.0:8002...
+
+### pay 服务
+<a name="div3.4" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
+
+前提：确保 user rpc、 product rpc 以及 order rpc 运行中
+
+1. 启动 pay rpc 服务
+   ```shell
+   $ cd service/pay/rpc
+   $ go run pay.go -f etc/pay.yaml
+   ```
+   > Starting rpc server at 127.0.0.1:9003...
+2. 启动 pay api 服务
+   ```shell
+   $ cd service/pay/api
+   $ go run pay.go -f etc/pay.yaml
+   ```
+   > Starting server at 0.0.0.0:8003...
