@@ -31,6 +31,7 @@ func (l *LoginLogic) Login(req types.LoginRequest) (resp *types.LoginResponse, e
 		Mobile:   req.Mobile,
 		Password: req.Password,
 	})
+	// l.Logger.Errorf("%v", err)
 	if err != nil {
 		return nil, err
 	}
