@@ -301,3 +301,19 @@
    $ go run pay.go -f etc/pay.yaml
    ```
    > Starting server at 0.0.0.0:8003...
+
+## RPC 服务 Auth 验证
+
+1. redis 中添加数据：
+   ```shell
+   HSET rpc:auth:user userapi 6jKNZbEpYGeUMAifz10gOnmoty3TV
+   ```
+   健值与 `service/user/api/etc/user.yaml` 中 `UserRpc` - (`App` `Token`) 值保持一致。
+2. 修改yaml配置文件，需要重启服务。
+3. 需要根据model下的sql文件创建表。
+4. 注册
+   ![](./static/picture/register.png)
+5. 登录
+   ![](./static/picture/login.png)
+6. user表数据
+   ![](./static/picture/usersql.png)
