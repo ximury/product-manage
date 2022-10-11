@@ -1,0 +1,27 @@
+Name: pay.rpc
+ListenOn: 127.0.0.1:9003
+
+Etcd:
+  Hosts:
+    - 123.56.113.66:12379
+  Key: pay.rpc
+
+Mysql:
+  DataSource: root:123123@tcp(127.0.0.1:3306)/mall?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+  - Host: 127.0.0.1:6379
+    Type: node
+
+# 添加 user rpc, order rpc 服务配置
+UserRpc:
+  Etcd:
+    Hosts:
+      - 123.56.113.66:12379
+    Key: user.rpc
+
+OrderRpc:
+  Etcd:
+    Hosts:
+      - 123.56.113.66:12379
+    Key: order.rpc
