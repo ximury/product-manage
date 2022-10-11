@@ -24,6 +24,8 @@
 
 &nbsp;&nbsp;[pay 服务](#div3.4)
 
+[RPC 服务 Auth 验证](#div4)
+
 ## 服务拆分
 <a name="div1" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
@@ -303,6 +305,7 @@
    > Starting server at 0.0.0.0:8003...
 
 ## RPC 服务 Auth 验证
+<a name="div4" style=" position: relative;top: -180px;display: block;height: 0;overflow: hidden;"></a>
 
 1. redis 中添加数据：
    ```shell
