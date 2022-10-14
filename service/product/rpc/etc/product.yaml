@@ -12,4 +12,4 @@ Mysql:
 CacheRedis:
   - Host: 127.0.0.1:6379
     Type: node # node可以不写，可以设为cluster
-    # Pass: xxx # 如果有密码
+    Pass: Kcm.2022 # 如果有密码
