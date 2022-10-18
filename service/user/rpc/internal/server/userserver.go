@@ -36,3 +36,8 @@ func (s *UserServer) UserInfo(ctx context.Context, in *userclient.UserInfoReques
 	l := logic.NewUserInfoLogic(ctx, s.svcCtx)
 	return l.UserInfo(ctx, in)
 }
+
+func (s *UserServer) GetUser(ctx context.Context, in *userclient.GetUserRequest) (*userclient.GetUserResponse, error) {
+	l := logic.NewGetUserLogic(ctx, s.svcCtx)
+	return l.GetUser(ctx, in)
+}

@@ -41,8 +41,20 @@ message UserInfoResponse {
   string Mobile = 4;
 }
 
+// 根据ID获取用户信息
+message GetUserRequest {
+  int64 Id = 1;
+}
+message GetUserResponse {
+  int64 Id = 1;
+  string Name = 2;
+  int64 Gender = 3;
+  string Mobile = 4;
+}
+
 service User {
   rpc Login(LoginRequest) returns(LoginResponse);
   rpc Register(RegisterRequest) returns(RegisterResponse);
   rpc UserInfo(UserInfoRequest) returns(UserInfoResponse);
+  rpc GetUser(GetUserRequest) returns(GetUserResponse);
 }

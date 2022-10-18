@@ -30,6 +30,17 @@ type (
 		Gender int64  `json:"gender"`
 		Mobile string `json:"mobile"`
 	}
+
+	// 根据ID获取用户信息
+	GetUserRequest {
+		Id int64 `json:"id"`
+	}
+	GetUseResponse {
+		Id     int64  `json:"id"`
+		Name   string `json:"name"`
+		Gender int64  `json:"gender"`
+		Mobile string `json:"mobile"`
+	}
 )
 
 service User {
@@ -38,6 +49,9 @@ service User {
 	
 	@handler Register
 	post /api/user/register(RegisterRequest) returns (RegisterResponse)
+	
+	@handler GetUser
+	post /api/user/getuser(GetUserRequest) returns (GetUseResponse)
 }
 
 @server(
