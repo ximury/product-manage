@@ -96,11 +96,11 @@
     ```
 4. 创建 proto 文件
    ```shell
-   vim rpc/product.proto
+   vim rpc/user.proto
     ```
 5. 根据 proto 文件生成代码
    ```shell
-   goctl rpc protoc product.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
+   goctl rpc protoc user.proto --go_out=./pb --go-grpc_out=./pb --zrpc_out=.
     ```
 6. 编写 user rpc 服务 - 修改 user.yaml 配置文件
    ```shell
