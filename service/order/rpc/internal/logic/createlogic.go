@@ -2,14 +2,13 @@ package logic
 
 import (
 	"context"
+	"github.com/zeromicro/go-zero/core/logx"
+	"google.golang.org/grpc/status"
 	"product/service/order/model"
 	"product/service/order/rpc/internal/svc"
 	"product/service/order/rpc/pb/order"
 	"product/service/product/rpc/pb/product"
-	"product/service/user/rpc/user"
-
-	"github.com/zeromicro/go-zero/core/logx"
-	"google.golang.org/grpc/status"
+	"product/service/user/rpc/pb/userclient"
 )
 
 type CreateLogic struct {
@@ -28,7 +27,13 @@ func NewCreateLogic(ctx context.Context, svcCtx *svc.ServiceContext) *CreateLogi
 
 func (l *CreateLogic) Create(in *order.CreateRequest) (*order.CreateResponse, error) {
 	// 查询用户是否存在
-	_, err := l.svcCtx.UserRpc.UserInfo(l.ctx, &user.UserInfoRequest{
+	/*** 执行顺序
+	1. /user/rpc/user/user.go: type User interface{}
+	2. /user/rpc/user/user.go: func (m *defaultUser) GetUser()
+	3. user/rpc/pb/userclient/user_grpc.pb.go: type UserClient interface[}
+	4. user/rpc/pb/userclient/user_grpc.pb.go: func (c *userClient) GetUser()
+	*/
+	_, err := l.svcCtx.UserRpc.GetUser(l.ctx, &userclient.GetUserRequest{
 		Id: in.Uid,
 	})
 	if err != nil {

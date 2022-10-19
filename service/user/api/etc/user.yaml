@@ -7,7 +7,7 @@ Mysql:
 
 CacheRedis:
   - Host: 127.0.0.1:6379
-    Pass:
+    Pass: Kcm.2022
     Type: node
 
 Auth:
