@@ -75,3 +75,19 @@ go run service/pay/api/pay.go -f service/pay/api/etc/pay.yaml
 > /api/order/list
 
 ![detail](../picture/order_list.png)
+
+## PAY
+
+> /api/pay/create
+
+![detail](../picture/pay_create.png)
+
+> /api/pay/detail
+
+![detail](../picture/pay_detail.png)
+
+> /api/pay/callback
+
+![detail](../picture/pay_callback1.png)
+
+![detail](../picture/pay_callback2.png)
