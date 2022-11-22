@@ -11,7 +11,7 @@ Mysql:
 
 CacheRedis:
   - Host: 127.0.0.1:6379
-    Pass: Kcm.2022
+    Pass: 123123
     Type: node
 
 Salt: HWVOFkGgPTryzICwd7qnJaZR9KQ2i8xe
@@ -22,5 +22,5 @@ Salt: HWVOFkGgPTryzICwd7qnJaZR9KQ2i8xe
 Redis:                   # 指定 Redis 服务
   Key: rpc:auth:user     # 指定 Key 应为 hash 类型
   Host: 127.0.0.1:6379
-  Pass: Kcm.2022
+  Pass: 123123
   Type: node

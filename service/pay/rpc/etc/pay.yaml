@@ -12,6 +12,7 @@ Mysql:
 CacheRedis:
   - Host: 127.0.0.1:6379
     Type: node
+    Pass: 123123
 
 # 添加 user rpc, order rpc 服务配置
 UserRpc:

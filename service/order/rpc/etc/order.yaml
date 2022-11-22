@@ -12,7 +12,7 @@ Mysql:
 CacheRedis:
   - Host: 127.0.0.1:6379
     Type: node
-    Pass: Kcm.2022
+    Pass: 123123
 
 UserRpc:
   Etcd:
