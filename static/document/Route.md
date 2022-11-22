@@ -53,3 +53,25 @@ go run service/pay/api/pay.go -f service/pay/api/etc/pay.yaml
 > /api/product/detail
 
 ![detail](../picture/detail.png)
+
+## ORDER
+
+> /api/order/create
+
+![detail](../picture/order_create.png)
+
+> /api/order/detail
+
+![detail](../picture/order_detail.png)
+
+> /api/order/update
+
+![detail](../picture/order_update.png)
+
+> /api/order/remove
+
+![detail](../picture/order_remove.png)
+
+> /api/order/list
+
+![detail](../picture/order_list.png)
