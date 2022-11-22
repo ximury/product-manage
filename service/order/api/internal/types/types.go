@@ -21,6 +21,7 @@ type UpdateRequest struct {
 }
 
 type UpdateResponse struct {
+	Success bool `json:"success"`
 }
 
 type RemoveRequest struct {
