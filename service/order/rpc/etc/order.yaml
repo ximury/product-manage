@@ -12,7 +12,7 @@ Mysql:
 CacheRedis:
   - Host: 127.0.0.1:6379
     Type: node
-    Pass:
+    Pass: Kcm.2022
 
 UserRpc:
   Etcd:
@@ -25,3 +25,12 @@ ProductRpc:
     Hosts:
       - 123.56.113.66:12379
     Key: product.rpc
+
+Log:
+   ServiceName: order.rpc
+   Mode: console
+   # Path:
+   Level: error
+   Compress: false  # 是否压缩.gz
+   KeepDays: 0      # 保存天数 0永久保存
+   StackCoolDownMillis: 100  # 毫秒
